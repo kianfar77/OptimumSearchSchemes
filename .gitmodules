@@ -1,0 +1,3 @@
+[submodule "code/seqan"]
+	path = code/seqan
+	url = git@github.com:seqan/seqan.git
