@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     // Argument Parser
     ArgumentParser parser("SearchSchemes - Index Creation for Benchmark");
-    addDescription(parser, "App for creating an index (that is needed for the benchmark app). Only supports Dna so far. At most 4 GB.");
+    addDescription(parser, "App for building an index (that is needed for the benchmark app). Only supports Dna so far. At most 4 GB.");
 
     addOption(parser, ArgParseOption("G", "genome", "Path to the genome (.fa, .fasta)", ArgParseArgument::INPUT_FILE, "IN"));
 	setValidValues(parser, "genome", "fa fasta");

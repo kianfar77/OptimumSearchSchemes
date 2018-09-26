@@ -6,14 +6,14 @@ using namespace seqan;
 
 namespace seqan {
 
-template <typename TChar, typename TOwner>
-struct SAValue<StringSet<String<TChar>, TOwner > >
+template <typename TChar, typename TAlloc, typename TOwner>
+struct SAValue<StringSet<String<TChar, TAlloc>, TOwner> >
 {
     typedef Pair<uint16_t, uint32_t> Type;
 };
 
-template <typename TChar, typename TOwner>
-struct SAValue<String<TChar, TOwner > >
+template <typename TChar, typename TAlloc>
+struct SAValue<String<TChar, TAlloc> >
 {
     typedef uint32_t Type;
 };
@@ -62,9 +62,9 @@ inline unsigned long long countTrivialSearch(unsigned int needleLength, uint8_t 
 }
 
 // TODO: rename to needlePos!
-template <typename TChar, typename TOptimalSearch, typename TDistanceTag>
+template <typename TChar, typename TOptimumSearch, typename TDistanceTag>
 inline void _countSearch(uint32_t const needleLength, uint32_t const needleLeftIt, uint32_t const needleRightIt,
-                         uint8_t const errors, TOptimalSearch const & s,
+                         uint8_t const errors, TOptimumSearch const & s,
                          bool const goToRight, uint8_t const blockIndex,
                          uint64_t & count, TDistanceTag const & /**/)
 {
@@ -144,16 +144,16 @@ inline void _countSearch(uint32_t const needleLength, uint32_t const needleLeftI
     }
 }
 
-template <typename TChar, typename TOptimalSearch, typename TDistanceTag>
-inline uint64_t countSearch(unsigned int needleLength, TOptimalSearch const & s, TDistanceTag const & /**/)
+template <typename TChar, typename TOptimumSearch, typename TDistanceTag>
+inline uint64_t countSearch(unsigned int needleLength, TOptimumSearch const & s, TDistanceTag const & /**/)
 {
     uint64_t count = 0; // TODO: removed initialDirection. correct?
     _countSearch<TChar>(needleLength, s.startPos, s.startPos + 1, 0, s, true /*TODO:initialDirection Rrev()*/, 0, count, TDistanceTag());
     return count;
 }
 
-template <typename TChar, typename TOptimalSearchScheme, typename TDistanceTag>
-inline uint64_t countSearchScheme(unsigned const needleLength, TOptimalSearchScheme const & scheme, TDistanceTag const & /**/)
+template <typename TChar, typename TOptimumSearchScheme, typename TDistanceTag>
+inline uint64_t countSearchScheme(unsigned const needleLength, TOptimumSearchScheme const & scheme, TDistanceTag const & /**/)
 {
     uint64_t count = 0;
     for (auto const & s : scheme)
@@ -161,8 +161,8 @@ inline uint64_t countSearchScheme(unsigned const needleLength, TOptimalSearchSch
     return count;
 }
 
-template <typename TChar, typename TOptimalSearchScheme>
-inline void _optimalSearchSchemeComputeOptimalBlocklength(TOptimalSearchScheme scheme,
+template <typename TChar, typename TOptimumSearchScheme>
+inline void _optimalSearchSchemeComputeOptimalBlocklength(TOptimumSearchScheme scheme,
                                                           unsigned const maxErrors, uint32_t const needleLength)
 {
     // count edges for all blocklengths and choose theoretically optimal one
