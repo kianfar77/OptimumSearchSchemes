@@ -5,7 +5,7 @@ How to build the project
 ------------------------
 
 ```sh
-   $ git clone git@github.com:kianfar77/OptimumSearchSchemes.git --recurse-submodules
+   $ git clone https://github.com/kianfar77/OptimumSearchSchemes.git --recurse-submodules
    $ mkdir OptimumSearchSchemes-build && cd OptimumSearchSchemes-build
    $ cmake ../OptimumSearchSchemes/code -DCMAKE_BUILD_TYPE=Release
    $ make -j
