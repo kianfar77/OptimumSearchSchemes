@@ -1,0 +1,12 @@
+3137161264
+10
+n
+x
+t+
+t-
+L
+U
+z_under
+z_bar
+A
+lambda
