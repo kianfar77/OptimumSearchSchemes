@@ -10,7 +10,7 @@
 
 using namespace seqan;
 
-typedef Index<StringSet<String<Dna, MMap<>>, Owner<ConcatDirect<> > >, TIndexConfig> TIndex;
+typedef Index<StringSet<String<Dna, Alloc<>>, Owner<ConcatDirect<> > >, TIndexConfig> TIndex;
 typedef Iter<TIndex, VSTree<TopDown<> > > TIter;
 
 TIndex fm_index;

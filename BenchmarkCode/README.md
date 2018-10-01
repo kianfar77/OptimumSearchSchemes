@@ -31,6 +31,7 @@ The index is built using secondary memory. If you're getting a runtime error, yo
 
 ```sh
    $ export TMPDIR=/somewhere/else/with/more/space
+   $ SET TEMP=C:\somewhere\else\with\more\space
 ```
 
 ### Running the benchmark ###
