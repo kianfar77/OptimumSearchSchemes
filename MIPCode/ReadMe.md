@@ -10,7 +10,7 @@ The MIP can have different solutions with the same objective values.
 It is also possible that multiple runs of one problem, which do not reach optimality, i.e., run time equals to run time limit)
 result in slightly different solutions and objective values.
 
-## There are two options to run the program in Linux:
+## There are two options to run the program in Linux: run the executive file or build from source code. For both options first execute the following:
 
 ```sh
    $ git clone https://github.com/kianfar77/OptimumSearchSchemes.git
