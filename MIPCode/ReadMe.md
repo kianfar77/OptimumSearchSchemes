@@ -1,4 +1,4 @@
-# Finding optimum search schemes for approximate string matching in bidirectional FM-index using mixed integer programming  
+# Finding optimum search schemes for approximate string matching using mixed integer programming  
 __________________________________________________________________________________________________
 
 This program/code finds the optimum search schemes for approximate string matching using bidirectional FM-index using the approach described in the paper *Kianfar, K., Pockrandt, C., Torkamandi, B., Luo, H., Reinert, K., Optimum Search Schemes for Approximate String Matching Using Bidirectional FM-Index, 2018*.\
