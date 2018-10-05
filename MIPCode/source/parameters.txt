@@ -2,8 +2,8 @@
 10
 n
 x
-t+
-t-
+tp
+tm
 L
 U
 z_under
