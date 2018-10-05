@@ -6,8 +6,9 @@ This program is meant to be used for generating the results of above paper and i
 
 __________________________________________________________________________________________________
 
-The MIP could have different solutions with same objective values. It is possible multiple runs of one problem, which did not reach the optimality (rum time equals to run time limit),
-would result in slightly different solutions and objective values.
+The MIP can have different solutions with the same objective values. 
+It is also possible that multiple runs of one problem, which do not reach optimality, i.e., run time equals to run time limit)
+result in slightly different solutions and objective values.
 
 ## There are two options to run the program in Linux:
 
