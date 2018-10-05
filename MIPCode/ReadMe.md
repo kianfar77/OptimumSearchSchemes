@@ -19,6 +19,7 @@ For both options first execute the following:
 ```
 
 ### Run the executive file
+* The executables have been generated using CPLEX 12.7.1.
 * Before running the program, make sure there is a folder named "output" in application directory.
 * Do not delete or modify parameters.txt
 * In application directory, type the following commands in terminal
@@ -29,7 +30,7 @@ For both options first execute the following:
 ```
 
 ### Build from source code
-* Make sure you have the following files in "libs" folder (you can acquire the latest version on [IBM download page for students/faculties](https://developer.ibm.com/docloud/blog/2016/11/24/cos-12-7-ai/ "IBM"), see the section "required libraries" in this manual)
+* Make sure you have the following files in "libs" folder (you can acquire the latest version on [IBM download page for students/faculties](https://developer.ibm.com/docloud/blog/2016/11/24/cos-12-7-ai/ "IBM"), see the section "required libraries" below)
 1. cplex.h
 2. cpxconst.h
 3. libcplex.a
@@ -42,6 +43,20 @@ For both options first execute the following:
    $ make
    $ ./EqualFix -s <upperbound on number of searches> -p <number of parts> -k <maximum error> -r <read length> [-t <time limit>][--lowerK= <minimum number of errors>][--lp][--verbose][--sigma][-h|--help]
 ```
+## Required libraries
+* CPLEX 12.7.1 is used for the paper. If not avaialbele, the latest academic version, i.e., CPLEX 12.8, availble at [IBM download page for students/faculties](https://developer.ibm.com/docloud/blog/2016/11/24/cos-12-7-ai/ "IBM"), can be used with no significant difference in run times.
+
+* Install CPLEX under super user
+
+```sh
+   $ chmod +x cplex_file_you_have_downloaded.bin
+   $ ./cplex_file_you_have_downloaded.bin
+```
+* After installations, say, in the path /opt/ibm/ILOG/CPLEX_Studio1271,
+	* cplex.h and cpxconst.h would be located at\
+	  /opt/ibm/ILOG/CPLEX_Studio1271/cplex/include/ilcplex
+	* libcplex.a, libilocplex.a, and libcplexdistmip.a would be located at\
+	  /opt/ibm/ILOG/CPLEX_Studio1271/cplex/lib/x86-64_linux/static_pic/
 
 ## Arguments of the program:
 
@@ -98,20 +113,7 @@ upper bound on errors is greater than lower bound on errors for some parts.
 
 This file contains the input parameters that we had used for generating graphs and tables in the paper.
 
-## Required libraries
-* CPLEX 12.7.1 was used for the paper
-* You may access to the latest version (12.8) on [IBM download page for students/faculties](https://developer.ibm.com/docloud/blog/2016/11/24/cos-12-7-ai/ "IBM")
-* Install CPLEX under super user
 
-```sh
-   $ chmod +x cplex_file_you_have_downloaded.bin
-   $ ./cplex_file_you_have_downloaded.bin
-```
-* For an arbitrary instalation path such as /opt/ibm/ILOG/CPLEX_Studio1271,
-	* cplex.h and cpxconst.h would be located at\
-	  /opt/ibm/ILOG/CPLEX_Studio1271/cplex/include/ilcplex
-	* libcplex.a, libilocplex.a, and libcplexdistmip.a would be located at\
-	  /opt/ibm/ILOG/CPLEX_Studio1271/cplex/lib/x86-64_linux/static_pic/
 
 
 
