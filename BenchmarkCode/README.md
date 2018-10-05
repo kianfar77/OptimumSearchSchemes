@@ -26,7 +26,7 @@ How to run benchmarks
 
 ### Test data set
 
-To run the benchmarks from the paper, you can download the test data set. It includes the human genome hg38 without N bases, a prebuilt index of that genome and as well as the Illumina reads.
+To run the benchmarks from the paper, you can download the test data set. It includes the human genome hg38 without N bases, a prebuilt index of that genome and as well as the 100,000-read Illumina dataset used in the paper.
 
 You can find everything on http://ftp.mi.fu-berlin.de/pub/SeqAn/mappability/
 
