@@ -1,8 +1,7 @@
 __________________________________________________________________________________________________
 
-This program generates optimal search schemes of the following paper\
-"Optimum Search Schemes for Approximate String Matching Using Bidirectional FM-Index".\
-This program is meant to be used for generating the results of above paper and is not for commercial use. 
+This program/code finds the optimal search schemes for approximate string matching using bidirectional FM-index using the approach described in the paper *Kianfar, K., Pockrandt, C., Torkamandi, B., Luo, H., Reinert, K., Optimum Search Schemes for Approximate String Matching Using Bidirectional FM-Index, 2018*.\
+Any commercial use is prohibited.
 
 __________________________________________________________________________________________________
 
