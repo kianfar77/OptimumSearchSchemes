@@ -7,7 +7,7 @@ Any commercial use is prohibited.
 __________________________________________________________________________________________________
 
 The MIP can have different solutions with the same objective values. 
-It is also possible that multiple runs of one problem, which do not reach optimality (i.e. run time equals run time limit), result in slightly different solutions and objective values.
+It is also possible that multiple runs of one problem, which do not reach optimality (i.e., run time equals run time limit), result in slightly different solutions and objective values.
 
 ## There are two options to run the program in Linux: run the executive file or build from source code. 
 For both options first execute the following:
