@@ -43,7 +43,7 @@ For both options first execute the following:
    $ ./EqualFix -s <upperbound on number of searches> -p <number of parts> -k <maximum error> -r <read length> [-t <time limit>][--lowerK= <minimum number of errors>][--lp][--verbose][--sigma][-h|--help]
 ```
 ## Required libraries
-* CPLEX 12.7.1 is used for the paper. If not available, the latest academic version, i.e., CPLEX 12.8, available at [IBM download page for students/faculties](https://developer.ibm.com/docloud/blog/2016/11/24/cos-12-7-ai/ "IBM"), can be used without significant difference in run times.
+* CPLEX 12.7.1 is used for the paper. If not available, the latest academic version, i.e., CPLEX 12.8, available at [IBM download page for students/faculties](https://developer.ibm.com/docloud/blog/2016/11/24/cos-12-7-ai/ "IBM"), can be used with no significant difference in run times.
 
 * Install CPLEX under super user
 
