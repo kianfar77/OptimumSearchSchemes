@@ -71,7 +71,7 @@ For both options first execute the following:
 |--lp:          |Prints out the MIP formulation. [optional]	               								   |
 |--verbose:     |Prints out the progress of objective value, rows starting with * correspond to feasible solutions. [optional]	   |
 |--sigma:	|Alphabet size. [optional, defualt= 4 ]	               							                   |
-|-h,  --help:	|Display help.	               							                                           |
+|-h,  --help:	|Displays help.	               							                                           |
 
 ### Usage
 
