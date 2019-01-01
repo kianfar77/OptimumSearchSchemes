@@ -22,7 +22,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 		{
 			for(int i=0; i<row.nzcnt; i++)
 				row.rmatind[i] =  indexes.s * indexes.l * (indexes.d+1) + s * indexes.i * indexes.i + indexes.i * i + j;
-			master.rowName("1a",  's', 'j', s, j, true, true);
+			master.rowName("4a",  's', 'j', s, j, true, true);
 			master.addConstraint(row);
 		}
 	row.Dellocate();
@@ -40,7 +40,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 		{
 			for (int j=0; j<row.nzcnt; j++)
 				row.rmatind[j] =   indexes.s * indexes.l * (indexes.d+1) + s * indexes.i * indexes.i + indexes.i * i + j;
-			master.rowName("1b",  's', 'i', s, i, true, true);
+			master.rowName("4b",  's', 'i', s, i, true, true);
 			master.addConstraint(row);
 		}
 	row.Dellocate();
@@ -63,7 +63,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 				row.rmatind[h] =  indexes.s * indexes.l * (indexes.d+1) + s * indexes.i * indexes.i + indexes.i * h + 0 ;
 			row.rmatind[i+1] =  (indexes.s * indexes.l *( indexes.d+1)) +(indexes.s * indexes.i * indexes.i) + (s * indexes.i * (indexes.i+1) + (indexes.i+1) * i + 0) ;
 			row.rmatind[(i+1)+1] =  (indexes.s * indexes.l * (indexes.d+1)) +(indexes.s * indexes.i * indexes.i) + (indexes.s * indexes.i * (indexes.i+1)) +(s * indexes.i * (indexes.i+1) + (indexes.i+1) * i + 0) ;
-			master.rowName("1c",  's', 'i', 'j', s, i, 0, true, true, true);
+			master.rowName("5a",  's', 'i', 'j', s, i, 0, true, true, true);
 			master.addConstraint(row);
 		}
 		row.Dellocate();
@@ -87,7 +87,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 				row.rmatind[h] = indexes.s * indexes.l * (indexes.d+1)+ s * indexes.i * indexes.i + indexes.i * h + (indexes.i)-1 ;	
 			row.rmatind[i+1] =  (indexes.s * indexes.l *( indexes.d+1)) +(indexes.s * indexes.i * indexes.i) + (s * indexes.i * (indexes.i+1) + (indexes.i+1) * i + (indexes.i)) ;
 			row.rmatind[(i+1)+1] =  (indexes.s * indexes.l * (indexes.d+1)) + (indexes.s * indexes.i * indexes.i) + (indexes.s * indexes.i * (indexes.i+1)) +(s * indexes.i * (indexes.i+1) + (indexes.i+1) * i + (indexes.i)) ;	
-			master.rowName("1c",  's', 'i', 'j', s, i, indexes.i, true, true, true);
+			master.rowName("5a",  's', 'i', 'j', s, i, indexes.i, true, true, true);
 			master.addConstraint(row);
 		}
 		row.Dellocate();
@@ -115,7 +115,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 				row.rmatval[2*(i+1)+1] = 1;
 				row.rmatind[2*(i+1)] =  (indexes.s * indexes.l *( indexes.d+1)) +(indexes.s * indexes.i * indexes.i) + (s * indexes.i * (indexes.i+1) + (indexes.i +1)* i + j) ;
 				row.rmatind[2*(i+1)+1] =  (indexes.s * indexes.l * (indexes.d+1)) +(indexes.s * indexes.i * indexes.i) +(indexes.s * indexes.i * (indexes.i+1)) + (s * indexes.i * (indexes.i+1) + (indexes.i+1) * i + j) ;
-				master.rowName("1c",  's', 'i', 'j', s, i, j, true, true, true);
+				master.rowName("5a",  's', 'i', 'j', s, i, j, true, true, true);
 				master.addConstraint(row);
 			}
 		row.Dellocate();
@@ -136,7 +136,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 				row.rmatind[j] =  (indexes.s * indexes.l *( indexes.d+1)) +(indexes.s * indexes.i * indexes.i) + (s * indexes.i * (indexes.i+1) + (indexes.i+1) * i + j) ;
 			for (int j=0; j<indexes.i+1; j++)
 				row.rmatind[j+indexes.i+1] =  (indexes.s * indexes.l * (indexes.d+1)) +(indexes.s * indexes.i * indexes.i) +(indexes.s * indexes.i * (indexes.i+1)) + (s * indexes.i * (indexes.i+1) + (indexes.i+1) * i + j) ;
-			master.rowName("1d",  's', 'i', s, i, true, true);
+			master.rowName("5b",  's', 'i', s, i, true, true);
 			master.addConstraint(row);
 		}
 	row.Dellocate();
@@ -159,7 +159,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 				row.rhs[0] = -(d+1)-((i+1)*m[0]-(l+1)); 
 				row.rmatind[1] =   indexes.s * indexes.l * (indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1))  + 2 * indexes.s *indexes.i + s * indexes.l * (indexes.d+1) +
 					l * (indexes.d+1) + d;
-				master.rowName("3a",  's', 'L', 'd', s, l, d, true, true, false);
+				master.rowName("6a",  's', 'L', 'd', s, l, d, true, true, false);
 				master.addConstraint(row);
 			}
 		}
@@ -184,7 +184,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 				row.rhs[0] = d-1; 
 				row.rmatind[1] =   2 * indexes.s * indexes.l *( indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1))  + 2 * indexes.s *indexes.i + s * indexes.l * (indexes.d+1) 
 					+ l * (indexes.d+1) + d;
-				master.rowName("3b",  's', 'L', 'd', s, l, d, true, true, false);
+				master.rowName("6b",  's', 'L', 'd', s, l, d, true, true, false);
 				master.addConstraint(row);
 			}
 		}
@@ -211,7 +211,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 				+ l * (indexes.d+1) + 0;
 			row.rmatind[1]= s * indexes.l * (indexes.d+1) + l * (indexes.d+1) + 0;
 			row.rmatind[0]= s * indexes.l * (indexes.d+1) + (l-1) * (indexes.d+1) + 0;
-			master.rowName("3c",  's', 'L', 'd', s, l, 0, true, true, false);
+			master.rowName("6c",  's', 'L', 'd', s, l, 0, true, true, false);
 			master.addConstraint(row);
 		}
 	}		
@@ -244,7 +244,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 				row.rmatind[2]= s * indexes.l * (indexes.d+1) + l * (indexes.d+1) + d;
 				row.rmatind[1]= s * indexes.l * (indexes.d+1) + (l-1) * (indexes.d+1) + d;
 				row.rmatind[0]= s * indexes.l * (indexes.d+1) + (l-1) * (indexes.d+1) + d-1;
-				master.rowName("3c",  's', 'L', 'd', s, l, d, true, true, false);
+				master.rowName("6c",  's', 'L', 'd', s, l, d, true, true, false);
 				master.addConstraint(row);
 			}
 		}
@@ -266,7 +266,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 			+ 0 * (indexes.d+1) + 1;
 		row.rmatind[1] = indexes.s * indexes.l * (indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1))  + 2 * indexes.s *indexes.i + s * indexes.l * (indexes.d+1) + 0 * (indexes.d+1) + 1;
 		row.rmatind[0]= s * indexes.l * (indexes.d+1) + 0 * (indexes.d+1) + 1;
-		master.rowName("3c",  's', 'L', 'd', s, 0, 1, true, true, false);
+		master.rowName("6c",  's', 'L', 'd', s, 0, 1, true, true, false);
 		master.addConstraint(row);
 	}		
 	row.Dellocate();
@@ -286,7 +286,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 			+ 0 * (indexes.d+1) + 0;
 		row.rmatind[1] = indexes.s * indexes.l * (indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1))  + 2 * indexes.s *indexes.i + s * indexes.l * (indexes.d+1) + 0 * (indexes.d+1) + 0;
 		row.rmatind[0]= s * indexes.l * (indexes.d+1) + 0 * (indexes.d+1) + 0;
-		master.rowName("3c",  's', 'L', 'd', s, 0, 0, true, true, false);
+		master.rowName("6c",  's', 'L', 'd', s, 0, 0, true, true, false);
 		master.addConstraint(row);
 	}		
 	row.Dellocate();
@@ -304,7 +304,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 		{
 			row.rmatind[0] =  indexes.s * indexes.l *( indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1)) + s *indexes.i + i;
 			row.rmatind[1] =  indexes.s * indexes.l *( indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1)) + s *indexes.i + i+1;
-			master.rowName("4a",  's', 'i', s, i, true, true);
+			master.rowName("7a",  's', 'i', s, i, true, true);
 			master.addConstraint(row);
 		}
 	row.Dellocate();
@@ -322,7 +322,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 		{
 			row.rmatind[0] =  indexes.s * indexes.l *( indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1))  +1* indexes.s *indexes.i + s *indexes.i + i;
 			row.rmatind[1] =  indexes.s * indexes.l *( indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1))  +1* indexes.s *indexes.i + s *indexes.i + i+1;
-			master.rowName("4b",  's', 'i', s, i, true, true);
+			master.rowName("7b",  's', 'i', s, i, true, true);
 			master.addConstraint(row);
 		}
 	row.Dellocate();
@@ -344,7 +344,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 				row.rmatind[k] =  indexes.s * indexes.l *( indexes.d+1) +  s * indexes.i * indexes.i + indexes.i * (i) + (k) ;
 			for (int k=0; k< indexes.i-i; ++k)
 				row.rmatind[indexes.i-i+k] =  indexes.s * indexes.l *( indexes.d+1) +  s * indexes.i * indexes.i + indexes.i * (i) + (i+k) ;
-			master.rowName("new5b", 's', 'i', i, s, true, true);
+			master.rowName("12", 's', 'i', i, s, true, true);
 			master.addConstraint(row);
 		}
 		row.Dellocate();
@@ -373,7 +373,7 @@ void PopulateMasterProblem(RowFormat& master, const IndicesRec& indexes,const in
 						++count;
 						row.rmatind[count] =  indexes.s * indexes.l *( indexes.d+1) +  (t) * indexes.i * indexes.i + indexes.i * (0) + (k) ;
 					}
-				master.rowName("new5c",  's', 'j', s, j, true, true);
+				master.rowName("11b",  's', 'j', s, j, true, true);
 				master.addConstraint(row);
 
 				row.Dellocate();
@@ -408,7 +408,7 @@ void AddConstraintToMaster( RowFormat& master, const IndicesRec& indexes, const 
 						row.rmatind[h*indexes.i+j] =  indexes.s * indexes.l * (indexes.d+1) + s * indexes.i * indexes.i + indexes.i * h + j ;
 				row.rmatind[indexes.i*(i+1)] = 3 * indexes.s * indexes.l * (indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1))  + 2 * indexes.s *indexes.i + q * indexes.s * indexes.i
 					+ s * indexes.i + i;
-				master.rowName("5a",  'q', 's', 'i', q, s, i, false, true, true);
+				master.rowName("8a_A_is_sum(a.x)",  'q', 's', 'i', q, s, i, false, true, true);
 				master.addConstraint(row);
 			}
 		}
@@ -433,7 +433,7 @@ void AddConstraintToMaster( RowFormat& master, const IndicesRec& indexes, const 
 					+ s * indexes.i + i;
 				row.rmatind[2] = 3 * indexes.s * indexes.l * (indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1)) + 2 * indexes.s *indexes.i  + indexes.q * indexes.s * indexes.i
 					+ q * indexes.s + s;
-				master.rowName("5b.left",  'q', 's', 'i', q, s, i, false, true, true);
+				master.rowName("8a.left",  'q', 's', 'i', q, s, i, false, true, true);
 				master.addConstraint(row);
 			}
 	row.Dellocate();	
@@ -457,7 +457,7 @@ void AddConstraintToMaster( RowFormat& master, const IndicesRec& indexes, const 
 				row.rmatind[2] = 3 * indexes.s * indexes.l * (indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1))  
 					+ 2 * indexes.s *indexes.i 
 				+ indexes.q  * indexes.s * indexes.i + q * indexes.s + s;
-				master.rowName("5b.right",  'q', 's', 'i', q, s, i, false, true, true);
+				master.rowName("8a.right",  'q', 's', 'i', q, s, i, false, true, true);
 				master.addConstraint(row);
 			}
 	row.Dellocate();
@@ -475,7 +475,7 @@ void AddConstraintToMaster( RowFormat& master, const IndicesRec& indexes, const 
 		for(int s=0; s<indexes.s; s++) 
 			row.rmatind[s] = 3 * indexes.s * indexes.l * (indexes.d+1) + (indexes.s * indexes.i * indexes.i) +2*(indexes.s * indexes.i * (indexes.i+1))  + 2 * indexes.s *indexes.i + indexes.q * indexes.s * indexes.i
 			+ q * indexes.s + s;
-		master.rowName("5c", 'q', q, false);
+		master.rowName("8b", 'q', q, false);
 		master.addConstraint(row);
 	}
 	row.Dellocate();

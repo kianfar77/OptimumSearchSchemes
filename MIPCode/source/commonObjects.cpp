@@ -116,7 +116,7 @@ void RowFormat::optimize(bool isLinearProgramming)
 void RowFormat::getSolution()
 {
 	status = CPXsolution (env, problem, &solstat, &objval, x, NULL, NULL, NULL);
-	if((solstat != 101) && (solstat != 102))
+	if((solstat != 101) && (solstat != 102)&& (solstat != 107))
 	{
 		cout<<"solstat @ CPXsolution @ getSolution: "<<solstat<<endl;
 		cout<<"check out this website: "<<endl<<"https://www.ibm.com/support/knowledgecenter/SSSA5P_12.6.3/ilog.odms.cplex.help/refcallablelibrary/macros/Solution_status_codes.html"<<endl;
@@ -596,9 +596,9 @@ void readInput(ifstream& inMYFILE, char* fileAddress, IndicesRec& index, searchP
 		masterParam.colnames[i] = new char[NAMELENGTH];
 		inMYFILE.getline(masterParam.colnames[i], NAMELENGTH);
 		j=0;
-		while(j < NAMELENGTH && masterParam.colnames[i][j] != '\0')
+		while(j < NAMELENGTH && masterParam.colnames[i][j+1] != '\0')
             ++j;
-        masterParam.colnames[i][j-1]='\0';
+        masterParam.colnames[i][j+1]='\0';
 
 	}
 	inMYFILE.close();

@@ -66,7 +66,7 @@ For Fig2-b in the paper we have used the following parameters:
         3	,	3	,	0	,	4	,	102	,
 	
 
-For Tables 1, 2, and 3 in the paper we have used the following parameters:
+For Table 2 in the paper we have used the following parameters:
 
 	/S		/P		/loweK		/K		/R 	
 

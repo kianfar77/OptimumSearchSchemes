@@ -1,27 +1,35 @@
+# Finding optimum search schemes for approximate string matching using mixed integer programming  
 __________________________________________________________________________________________________
 
-This program generates optimal search schemes of the following paper\
-"Optimum Search Schemes for Approximate String Matching Using Bidirectional FM-Index".\
-This program meant to be used for generating the results of above paper and is not for commercial use. 
+This program/code finds the optimum search schemes for approximate string matching using bidirectional FM-index using the approach described in the paper *Kianfar, K., Pockrandt, C., Torkamandi, B., Luo, H., Reinert, K., Optimum Search Schemes for Approximate String Matching Using Bidirectional FM-Index, 2018*.\
+Any commercial use is prohibited.
 
 __________________________________________________________________________________________________
 
-The MIP could have different solutions with same objective values. It is possible multiple runs of one problem, which did not reach the optimality (rum time equals to run time limit),
-would result in slightly different solutions and objective values.
+The MIP can have different solutions with the same objective values. 
+It is also possible that multiple runs of one problem, which do not reach optimality (i.e., run time equals run time limit), result in slightly different solutions and objective values.
 
-## There are two options to run the program in Linux:
+## There are two options to run the program in Linux: run the executive file or build from source code. 
+For both options first execute the following:
+
+```sh
+   $ git clone https://github.com/kianfar77/OptimumSearchSchemes.git
+   $ cd OptimumSearchSchemes/MIPCode/ && ls
+```
 
 ### Run the executive file
+* The executable has been generated using CPLEX 12.7.1.
 * Before running the program, make sure there is a folder named "output" in application directory.
+* Do not delete or modify parameters.txt
 * In application directory, type the following commands in terminal
 
 ```sh
    $ chmod +x EqualFix
-   $ ./EqualFix -s <upperbound on number of searches> -p <number of parts> -k <maximum error> -r <read length> [-t <time limit>][--lowerK= <minimum number of errors>][--lp][--verbose][-h|--help]
+   $ ./EqualFix -s <upperbound on number of searches> -p <number of parts> -k <maximum error> -r <read length> [-t <time limit>][--lowerK= <minimum number of errors>][--lp][--verbose][--sigma][-h|--help]
 ```
 
 ### Build from source code
-* Make sure you have the following files in "libs" folder (you can accuire those on [IBM download page for students/faculties](https://developer.ibm.com/docloud/blog/2016/11/24/cos-12-7-ai/ "IBM")):
+* Make sure you have the following files in "libs" folder (you can acquire the latest version on [IBM download page for students/faculties](https://developer.ibm.com/docloud/blog/2016/11/24/cos-12-7-ai/ "IBM"), see the section "required libraries" below)
 1. cplex.h
 2. cpxconst.h
 3. libcplex.a
@@ -32,8 +40,22 @@ would result in slightly different solutions and objective values.
 
 ```sh
    $ make
-   $ ./EqualFix -s <upperbound on number of searches> -p <number of parts> -k <maximum error> -r <read length> [-t <time limit>][--lowerK= <minimum number of errors>][--lp][--verbose][-h|--help]
+   $ ./EqualFix -s <upperbound on number of searches> -p <number of parts> -k <maximum error> -r <read length> [-t <time limit>][--lowerK= <minimum number of errors>][--lp][--verbose][--sigma][-h|--help]
 ```
+## Required libraries
+* CPLEX 12.7.1 is used for the paper. If not available, the latest academic version, i.e., CPLEX 12.8, available at [IBM download page for students/faculties](https://developer.ibm.com/docloud/blog/2016/11/24/cos-12-7-ai/ "IBM"), can be used with no significant difference in run times.
+
+* Install CPLEX under super user
+
+```sh
+   $ chmod +x cplex_file_you_have_downloaded.bin
+   $ ./cplex_file_you_have_downloaded.bin
+```
+* After installations, say, in the path /opt/ibm/ILOG/CPLEX_Studio1271,
+	* cplex.h and cpxconst.h would be located at\
+	  /opt/ibm/ILOG/CPLEX_Studio1271/cplex/include/ilcplex
+	* libcplex.a, libilocplex.a, and libcplexdistmip.a would be located at\
+	  /opt/ibm/ILOG/CPLEX_Studio1271/cplex/lib/x86-64_linux/static_pic/
 
 ## Arguments of the program:
 
@@ -47,8 +69,8 @@ would result in slightly different solutions and objective values.
 |-t:            |Upperbound on run time. [optional, defualt= 3.0 hours]	               					           	   |
 |--lowerK:      |Number of minimum errors. [optional, defualt= 0 ]	               				                           |
 |--lp:          |Prints out the MIP formulation. [optional]	               								   |
-|--verbose:     |Prints out the progress of objective value, rows starting with * correspond to integer feasible solutions. [optional]	   |
-|--sigma:	|Alphabet size. [optional, defualt= 4 ]	               							                                           |
+|--verbose:     |Prints out the progress of objective value, rows starting with * correspond to feasible solutions. [optional]	   |
+|--sigma:	|Alphabet size. [optional, defualt= 4 ]	               							                   |
 |-h,  --help:	|Displays help.	               							                                           |
 
 ### Usage
@@ -80,5 +102,22 @@ would result in slightly different solutions and objective values.
   ./EqualFix -s <upperbound on number of searches> -p <number of parts> -k <maximum error> -r <read length>  > ./output/verbose.txt.
   In detailed verbose setting, rows starting with "*" represent a feasible integer solution. By looking at those 
   rows one can observe how fast the program converges to the optimal solution (see verboseExample.png).
+
+### output_for_some_optimal_runs.txt
+
+This file contains the optimal search schemes for some instances we had run for the paper. Please notice that there might be some empty searches in which
+upper bound on errors is greater than lower bound on errors for some parts. 
+
+### parameters_used_for_runs.txt
+
+This file contains the input parameters that we had used for generating graphs and tables in the paper.
+
+
+
+
+
+
+
+
 
 
