@@ -77,7 +77,7 @@ struct PaperOptimumSearchSchemes<3, TVoidType>
         { {{2, 3, 4, 1}}, {{0, 0, 0, 0}}, {{1, 2, 2, 3}}, {{0, 0, 0, 0}}, 0},
         { {{3, 4, 2, 1}}, {{0, 0, 2, 2}}, {{0, 0, 3, 3}}, {{0, 0, 0, 0}}, 0}
     }};
-    static constexpr std::array<OptimalSearch<5>, 4> VALUE_plus_two
+    static constexpr std::array<OptimalSearch<5>, 3> VALUE_plus_two
     {{
         { {{1, 2, 3, 4, 5}}, {{0, 0, 0, 2, 2}}, {{0, 0, 3, 3, 3}}, {{0, 0, 0, 0, 0}}, 0},
         { {{4, 3, 2, 1, 5}}, {{0, 0, 0, 0, 0}}, {{1, 1, 2, 2, 3}}, {{0, 0, 0, 0, 0}}, 0},
@@ -99,7 +99,7 @@ template <typename TVoidType>
 constexpr std::array<OptimalSearch<4>, 3> PaperOptimumSearchSchemes<3, TVoidType>::VALUE_plus_one;
 
 template <typename TVoidType>
-constexpr std::array<OptimalSearch<5>, 4> PaperOptimumSearchSchemes<3, TVoidType>::VALUE_plus_two;
+constexpr std::array<OptimalSearch<5>, 3> PaperOptimumSearchSchemes<3, TVoidType>::VALUE_plus_two;
 
 template <typename TVoidType>
 constexpr std::array<OptimalSearch<6>, 3> PaperOptimumSearchSchemes<3, TVoidType>::VALUE_plus_three;
